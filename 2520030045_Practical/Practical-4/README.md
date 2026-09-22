@@ -1,21 +1,48 @@
-# OS Lab Programs
+# OS Lab 4 – Process Synchronization and Zombie Process
 
-This folder contains Operating Systems lab programs written in C.
+## Files
+- wait_compare.c
+- zombie.c
+- no_zombie.c
 
-## Programs
+## Compile and Run
 
-1. wait_compare.c
-   - Demonstrates `fork()`, `wait()`, and `waitpid()`.
-
-2. zombie.c
-   - Creates a zombie process for observation.
-
-3. no_zombie.c
-   - Eliminates zombie processes using `wait()`.
-
-## Compile
-
+### wait() and waitpid()
 ```bash
-gcc filename.c -o output
-./output
+nano wait_compare.c
+gcc wait_compare.c
+./a.out
 ```
+
+### Zombie Process
+```bash
+nano zombie.c
+gcc zombie.c
+./a.out
+```
+
+### Remove Zombie Process
+```bash
+nano no_zombie.c
+gcc no_zombie.c
+./a.out
+```
+
+## Description
+
+**wait_compare.c**
+- Parent creates multiple child processes.
+- Demonstrates synchronization using `wait()` and `waitpid()`.
+
+**zombie.c**
+- Creates a zombie process by allowing the child to terminate while the parent does not call `wait()` immediately.
+
+**no_zombie.c**
+- Eliminates the zombie process using proper synchronization with `wait()`.
+
+## System Calls Used
+- `fork()`
+- `wait()`
+- `waitpid()`
+- `exit()`
+- `sleep()`
